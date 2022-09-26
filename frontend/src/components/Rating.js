@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export const Rating = ({ value, text }) => {
+// Adding in a color prop that's not defined in the products object. Look below for defaultProp Example
+export const Rating = ({ value, text, color }) => {
   return (
     <div className='rating'>
       <span>
@@ -9,6 +11,7 @@ export const Rating = ({ value, text }) => {
         This is also star number 1
          */}
         <i
+          style={{ color: color }}
           className={
             value >= 1
               ? 'fas fa-star'
@@ -23,6 +26,7 @@ export const Rating = ({ value, text }) => {
         If the review value is greater than 1 -> Full star. Else if value is greater than 0.5 -> Half Star. Else -> Empty star
          */}
         <i
+          style={{ color }}
           className={
             value >= 2
               ? 'fas fa-star'
@@ -37,6 +41,7 @@ export const Rating = ({ value, text }) => {
         If the review value is greater than 1 -> Full star. Else if value is greater than 0.5 -> Half Star. Else -> Empty star
          */}
         <i
+          style={{ color }}
           className={
             value >= 3
               ? 'fas fa-star'
@@ -51,6 +56,7 @@ export const Rating = ({ value, text }) => {
         If the review value is greater than 1 -> Full star. Else if value is greater than 0.5 -> Half Star. Else -> Empty star
          */}
         <i
+          style={{ color }}
           className={
             value >= 4
               ? 'fas fa-star'
@@ -65,6 +71,7 @@ export const Rating = ({ value, text }) => {
         If the review value is greater than 1 -> Full star. Else if value is greater than 0.5 -> Half Star. Else -> Empty star
          */}
         <i
+          style={{ color }}
           className={
             value >= 5
               ? 'fas fa-star'
@@ -79,4 +86,19 @@ export const Rating = ({ value, text }) => {
       <span>{text && text}</span>
     </div>
   );
+};
+
+//* Setting default prop values
+Rating.defaultProps = {
+  color: '#f8e825'
+};
+
+/** Type checking our pops
+ * * We're setting out prop types so that it takes in a specific type -> string, number, boolean, function etc
+ * For example, if we pass in a number into our 'text' field, then we get an error on our browser console. This is building in type Checking
+ */
+Rating.propTypes = {
+  value: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
+  color: PropTypes.string
 };

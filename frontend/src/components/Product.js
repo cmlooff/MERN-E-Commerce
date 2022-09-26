@@ -16,12 +16,11 @@ export const Product = ({ product }) => {
         {/* Product name as title  */}
         <a href={`/product/${product._id}`}>
           <Card.Title as={'div'}>
-            {' '}
-            <strong>{product.name}</strong>{' '}
+            <strong>{product.name}</strong>
           </Card.Title>
         </a>
 
-        {/* Rating */}
+        {/* Rating System */}
         <Card.Text as='div'>
           <Rating
             value={product.rating}

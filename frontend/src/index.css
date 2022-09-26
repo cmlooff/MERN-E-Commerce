@@ -1,3 +1,13 @@
 main {
   min-height: 80vh;
 }
+
+h3 {
+  /* Targeting our Product Price */
+  padding: 1rem 0;
+}
+
+.rating span {
+  /* Adds spacing between the rating stars */
+  margin: 0.1rem;
+}

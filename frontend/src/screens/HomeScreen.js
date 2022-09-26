@@ -11,8 +11,9 @@ const HomeScreen = () => {
         {/* Loop through products */}
         {products.map((product) => {
           // Small screens take 12 columns, medium 6 columns, etc
+          // ? Also need to have a key for the Col b/c react requires it.
           return (
-            <Col sm={12} md={6} lg={4} xl={3}>
+            <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
               {/* Mapping the individual product to an array and returning our columns */}
               <Product product={product} />
             </Col>
