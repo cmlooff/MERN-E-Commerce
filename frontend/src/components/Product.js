@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import { Rating } from './Rating';
 
 // Accessing our props from HomeScreen using new react methods
 export const Product = ({ product }) => {
@@ -10,6 +11,7 @@ export const Product = ({ product }) => {
         <Card.Img src={product.image} variant='top' />
       </a>
 
+      {/* Product Name with Link on name */}
       <Card.Body>
         {/* Product name as title  */}
         <a href={`/product/${product._id}`}>
@@ -18,11 +20,15 @@ export const Product = ({ product }) => {
             <strong>{product.name}</strong>{' '}
           </Card.Title>
         </a>
+
+        {/* Rating */}
         <Card.Text as='div'>
-          <div className='my-3'>
-            {product.rating} from {product.numReviews} reviews
-          </div>
+          <Rating
+            value={product.rating}
+            text={`${product.numReviews} reviews`}
+          />
         </Card.Text>
+
         <Card.Text as='h3'>${product.price}</Card.Text>
       </Card.Body>
     </Card>
